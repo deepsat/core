@@ -11,3 +11,11 @@ The main deamon running the DeepSat cansat.
 - OpenVino toolkit installed
     - inference engine
     - model optimizer
+
+## Deployement prerequesites
+```
+sudo apt-get install python3-numpy python3-cffi python3-aiohttp \
+    libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev \
+    libswscale-dev libswresample-dev libavfilter-dev libopus-dev \
+    libvpx-dev pkg-config libsrtp2-dev pulseaudio
+```

@@ -80,7 +80,7 @@ fi
 
 export PATH="$INTEL_OPENVINO_DIR/deployment_tools/model_optimizer${PATH:+:$PATH}"
 export PYTHONPATH="$INTEL_OPENVINO_DIR/deployment_tools/model_optimizer${PYTHONPATH:+:$PYTHONPATH}"
-
+python_version="3.7"
 
 if [ -e $INTEL_OPENVINO_DIR/deployment_tools/open_model_zoo/tools/accuracy_checker ]; then
     export PYTHONPATH="$INTEL_OPENVINO_DIR/deployment_tools/open_model_zoo/tools/accuracy_checker:$PYTHONPATH"
@@ -89,28 +89,6 @@ fi
 if [ -e $INTEL_OPENVINO_DIR/deployment_tools/tools/post_training_optimization_toolkit ]; then
     export PYTHONPATH="$INTEL_OPENVINO_DIR/deployment_tools/tools/post_training_optimization_toolkit:$PYTHONPATH"
 fi
-
-if [ -z "$python_version" ]; then
-    python_version=$(python3 -c 'import sys; print(str(sys.version_info[0])+"."+str(sys.version_info[1]))')
-fi
-
-OS_NAME=""
-if command -v lsb_release >/dev/null 2>&1; then
-    OS_NAME=$(lsb_release -i -s)
-fi
-
-python_bitness=$(python3 -c 'import sys; print(64 if sys.maxsize > 2**32 else 32)')   
-if [ "$python_bitness" != "" ] && [ "$python_bitness" != "64" ] && [ "$OS_NAME" != "Raspbian" ]; then
-    echo "[setupvars.sh] 64 bitness for Python" $python_version "is requred"
-fi
-
-MINIMUM_REQUIRED_PYTHON_VERSION="3.6"
-MAX_SUPPORTED_PYTHON_VERSION=$([[ "$OSTYPE" == "darwin"* ]] && echo '3.7' || echo '3.8') 
-if [[ ! -z "$python_version" && "$(printf '%s\n' "$python_version" "$MINIMUM_REQUIRED_PYTHON_VERSION" | sort -V | head -n 1)" != "$MINIMUM_REQUIRED_PYTHON_VERSION" ]]; then
-    echo "[setupvars.sh] ERROR: Unsupported Python version. Please install one of Python 3.6-${MAX_SUPPORTED_PYTHON_VERSION} (64-bit) from https://www.python.org/downloads/"
-    return 1
-fi
-
 
 if [ ! -z "$python_version" ]; then
     # add path to OpenCV API for Python 3.x
