@@ -28,7 +28,7 @@ camera = PiCamera(width=1296, height=976, fps=30, loop=loop)
 
 async def image():
     img = await camera.get()
-    cv2.imwrite(f"camera/{datetime.now()}.png", img)
+    # cv2.imwrite(f"camera/{datetime.now()}.png", img)
     return img
 
 
@@ -44,11 +44,8 @@ async def main():
     while True:
         a, b, c = await asyncio.gather(image(), send(), receive())
         print(datetime.now(), a, b, c)
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
 
-
-try:
+if __name__=="__main__":
     asyncio.ensure_future(main())
     loop.run_forever()
-finally:
-    camera.close()
