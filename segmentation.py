@@ -12,7 +12,8 @@ def main():
     blob = cv2.dnn.blobFromImage(img)
     model.setInput(blob)
     res = model.forward()
-    print(res)
+    print(res.shape)
+    # cv2.imwrite("result.png", res)
 
 
 if __name__ == "__main__":
