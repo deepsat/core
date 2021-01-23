@@ -18,5 +18,5 @@ The main deamon running the DeepSat cansat.
 pip install wheel
 ```
 ```bash
-sudo apt-get install python3-numpy python3-cffi python3-aiohttp libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libswresample-dev libavfilter-dev libopus-dev libvpx-dev pkg-config libsrtp2-dev pulseaudio
+sudo apt-get install python3-numpy python3-cffi python3-aiohttp libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libswresample-dev libavfilter-dev libopus-dev libvpx-dev pkg-config libsrtp2-dev pulseaudio libgtk-3-dev
 ```
