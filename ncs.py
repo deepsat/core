@@ -19,12 +19,17 @@ def main():
     print("Starting inference")
     start = time()
     res_roads = roads.infer(img)
-    res_objects = objects.infer(img416)
+    # res_objects = objects.infer(img416)
     end = time()
     print(f"Finished inference. Took {end - start} seconds.")
+    for key, value in res_roads.items():
+        fname = "".join(x for x in key if x.isalnum())
+        value = np.squeeze(value)
+        value = np.argmax(value, axis=0)*255
+        print(value)
+        print(value.shape)
 
-    print(res_roads)
-    print(res_objects)
+        cv2.imwrite(f"{fname}.png", value)
     
     
 if __name__ == "__main__":
