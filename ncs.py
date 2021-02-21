@@ -11,7 +11,7 @@ def main():
     ie = IECore()
 
     roads = IEModel("models/roads.xml", "models/roads.bin", ie, device, 1) 
-    objects = IEModel("models/objects.xml", "models/objects.bin", ie, device, 1)
+    objects = IEModel("models/yolo_tiny.xml", "models/yolo_tiny.bin", ie, device, 1)
 
     img = np.expand_dims(np.transpose(cv2.imread("frag.png"), (2,0,1)), 0)
     img416 = np.zeros((1,3,416,416))

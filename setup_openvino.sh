@@ -13,5 +13,6 @@ sudo ln -sfn /opt/intel/openvino_2021 /opt/intel/openvino
 source /opt/intel/openvino/bin/setupvars.sh
 sudo usermod -a -G users "$(whoami)"
 exec $SHELL
+source /opt/intel/openvino/bin/setupvars.sh
 sh /opt/intel/openvino/install_dependencies/install_NCS_udev_rules.sh
 
