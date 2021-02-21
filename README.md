@@ -28,6 +28,8 @@ The main deamon running the DeepSat cansat.
 `libbz2-dev libssl-dev libreadline-dev build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git`
 2. `curl https://pyenv.run | bash`
 3. `pyenv install 3.7.9`
+4. `pyenv global 3.7.9`
+5. `pip install wheel`
 
 ### rtcbot 
 Prerequesites:
