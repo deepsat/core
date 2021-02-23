@@ -30,14 +30,14 @@ class Core:
         self.camera = CVCamera(1600, 1200, fps=2, loop=self.loop)
         self.arduino = SerialConnection(
             "/dev/serial0",
-            readFormat="< 3f 3f 3f 3f 3B H 3B ? B 5f B H",
+            readFormat="< 3f 3f 3f 3f 3B H 3B ? B 5f B H L",
             readKeys=[
                 "temperature", "pressure", "altitude", "gyro_x", "gyro_y",
                 "gyro_z", "accel_x", "accel_y", "accel_z", "mag_x", "mag_y",
                 "mag_z", "hour", "minute", "second", "milisecond", "day",
                 "month", "year", "gps_fix", "gps_fix_quality", "latitude",
                 "longitude", "speed", "angle", "gps_altitude",
-                "gps_num_satellites", "photos_taken"
+                "gps_num_satellites", "photos_taken", "timestamp"
             ],
             writeFormat="< H",
             writeKeys=["photos_taken"],
