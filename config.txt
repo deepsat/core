@@ -72,3 +72,5 @@ dtparam=i2c_vc=on
 dtoverlay=arducam
 gpu_mem=400
 
+dtoverlay=disable-bt
+enable_uart=1

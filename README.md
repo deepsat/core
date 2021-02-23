@@ -30,6 +30,7 @@ The main deamon running the DeepSat cansat.
 3. `pyenv install 3.7.9`
 4. `pyenv global 3.7.9`
 5. `pip install wheel`
+6. `pip install -r requirements-deploy.txt`
 6. Should picamera fail to install normally, user `READTHEDOCS=True pip install picamera`
 
 ### rtcbot 
