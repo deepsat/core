@@ -30,7 +30,7 @@ class Core:
         self.camera = CVCamera(1600, 1200, fps=2, loop=self.loop)
         self.arduino = SerialConnection(
             "/dev/serial0",
-            readFormat="< 3f 3f 3f 3f 3B H 3B ? B 5f B I",
+            readFormat="< 3f 3f 3f 3f 3B H 3B ? B 5f B H",
             readKeys=[
                 "temperature", "pressure", "altitude", "gyro_x", "gyro_y",
                 "gyro_z", "accel_x", "accel_y", "accel_z", "mag_x", "mag_y",
@@ -39,7 +39,7 @@ class Core:
                 "longitude", "speed", "angle", "gps_altitude",
                 "gps_num_satellites", "photos_taken"
             ],
-            writeFormat="< I",
+            writeFormat="< H",
             writeKeys=["photos_taken"],
             loop=self.loop)
         self.mode = 1  # 1 - idle, 2 - neurals run
