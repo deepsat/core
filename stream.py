@@ -1,3 +1,7 @@
+'''
+Copied from rtcbot documentation
+''' 
+
 from aiohttp import web
 routes = web.RouteTableDef()
 
