@@ -1,6 +1,14 @@
 # DeepSat core
 The main deamon running the DeepSat cansat.
 
+What is working?
+- communication with arduino via serial port
+- using onboard camera
+- running inference on the images taken with neural networks (models not provided)
+- ability to act as an rtc device for live video feed
+
+Code contains templates copied from documentation (where indicated).
+
 ## Requirements
 - run `source setupvars.sh` always on starting a new terminal
     - it assumes the OpenVino is installed at `/opt/intel/openvino_2021`
